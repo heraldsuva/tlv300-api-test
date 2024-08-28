@@ -2,6 +2,8 @@
 
 namespace App\DataProviders\Whois;
 
+use Carbon\Carbon;
+
 class Whois
 {
     public function __construct(

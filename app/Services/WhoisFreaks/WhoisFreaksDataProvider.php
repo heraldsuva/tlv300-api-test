@@ -23,8 +23,8 @@ class WhoisFreaksDataProvider implements WhoisDataProvider
             return new Whois(
                 domain_name: $data['domain_name'],
                 registrar_name: $data['domain_registrar']['registrar_name'],
-                registration_date: $data['create_date'],
-                exp_date: $data['expiry_date'],
+                registration_date: Carbon::parse($data['create_date'])->format('M d, Y'),
+                exp_date: Carbon::parse($data['expiry_date'])->format('M d, Y'),
                 est_domain_age: 0,
                 hostnames: $data['registry_data']['name_servers'],
                 registrant_name: $data['registrant_contact']['company'],

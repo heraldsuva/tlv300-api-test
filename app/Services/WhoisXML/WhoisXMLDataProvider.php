@@ -25,8 +25,8 @@ class WhoisXMLDataProvider implements WhoisDataProvider
             return new Whois(
                 domain_name: $data['domainName'],
                 registrar_name: $data['registrarName'],
-                registration_date: $data['createdDate'],
-                exp_date: $data['expiresDateNormalized'],
+                registration_date: Carbon::parse($data['createdDate'])->format('M d, Y'),
+                exp_date: Carbon::parse($data['expiresDateNormalized'])->format('M d, Y'),
                 est_domain_age: $data['estimatedDomainAge'],
                 hostnames: $data['nameServers']['hostNames'],
                 registrant_name: $data['registrant']['organization'],

@@ -19,8 +19,8 @@ class TestingWhoisDataProvider implements WhoisDataProvider
         return new Whois(
             domain_name: $domainName,
             registrar_name: fake()->company,
-            registration_date: fake()->iso8601,
-            exp_date: fake()->iso8601,
+            registration_date: Carbon::parse(fake()->iso8601)->format('M d, Y'),
+            exp_date: Carbon::parse(fake()->iso8601)->format('M d, Y'),
             est_domain_age: fake()->randomNumber(5),
             hostnames: $hostnames,
             registrant_name: fake()->company,
